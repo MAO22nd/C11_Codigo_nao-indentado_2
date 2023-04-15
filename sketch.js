@@ -21,14 +21,15 @@ ground = createSprite(200,180,400,20);
 ground.addImage("ground",groundImage);
 ground.x = ground.width /2;
 ground.velocityX = -4;
-  
+  invisibleGround = createSprite(200,180,400,10)
+invisibleGround.visible = false;
 }
 
 function draw() {
 background(220);
 
 //pular quando a barra de espaço for pressionada
-if (keyDown("space")) {
+if (keyDown("space")&& trex.y >=100 ) {
   trex.velocityY = -10;
 }
 
@@ -38,6 +39,6 @@ if (ground.x < 0) {
   ground.x = ground.width / 2;
 }
 
-trex.collide(ground);
+trex.collide(invisibleGround);
 drawSprites();
 }
